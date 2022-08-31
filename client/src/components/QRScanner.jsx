@@ -4,7 +4,7 @@ export default function QRScanner() {
     const [result, setresult] = useState('')
     const [isScanned, setisScanned] = useState(false)
     function handleScan(data) {
-        if(data!=null){
+        if (data != null) {
             console.log(data)
             setresult(data.text)
             setisScanned(true)
@@ -22,9 +22,8 @@ export default function QRScanner() {
             <p>QRScanner</p>
             {!isScanned ?
                 <QrReader
-                constraints={
-                        {facingMode:'rear'}
-                    }
+                    key="environment"
+                    constraints={{ facingMode: 'environment' }}
                     delay={2000}
                     style={previewStyle}
                     onError={handleError}
@@ -32,9 +31,9 @@ export default function QRScanner() {
                 />
                 :
                 <p>{result}</p>
-        }
+            }
 
-           
+
         </div>
     )
 }
