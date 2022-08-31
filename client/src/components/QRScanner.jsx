@@ -22,6 +22,9 @@ export default function QRScanner() {
             <p>QRScanner</p>
             {!isScanned ?
                 <QrReader
+                constraints={
+                        {facingMode:'rear'}
+                    }
                     delay={2000}
                     style={previewStyle}
                     onError={handleError}
